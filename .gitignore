@@ -1,0 +1,11 @@
+node_modules
+dist
+deploy
+tmp
+
+.next
+.output
+.nuxt
+.vscode
+*.zip
+*.gz

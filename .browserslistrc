@@ -1,0 +1,4 @@
+# 目标:兼容 iOS 14.6(Safari 14.1)等老浏览器
+# Next.js(SWC)据此降级 JS 语法;Tailwind v4 的 Lightning CSS 据此转译 oklch 等新式
+iOS >= 12
+Safari >= 12
