@@ -52,7 +52,7 @@ export default function Composer({ code: roomCode }: { code: string }) {
             }
           }}
           rows={1}
-          placeholder="输入文字,或粘贴/拖入文件…"
+          placeholder="输入文字"
           className="max-h-32 min-h-10 flex-1 resize-none rounded-2xl border border-neutral-200 px-3.5 py-2.5 text-base leading-snug outline-none focus:border-blue-400"
         />
         <button

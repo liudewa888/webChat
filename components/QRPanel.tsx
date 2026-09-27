@@ -1,5 +1,5 @@
 "use client";
-// 桌面端显示二维码供另一台设备扫码进房;手机端只显示链接+复制
+// 显示二维码供另一台设备扫码进房,并提供链接复制(移动端同样显示)
 import { useEffect, useState } from "react";
 import { QRCodeCanvas } from "qrcode.react";
 import { useStore } from "@/lib/store";
@@ -8,7 +8,10 @@ import { BASE_PATH } from "@/lib/base";
 export default function QRPanel({ code }: { code: string }) {
   const [url, setUrl] = useState("");
   const toast = useStore((s) => s.toast);
-  useEffect(() => setUrl(`${window.location.origin}${BASE_PATH}/r/${code}`), [code]);
+  useEffect(
+    () => setUrl(`${window.location.origin}${BASE_PATH}/r/${code}`),
+    [code],
+  );
 
   const copy = async () => {
     try {
@@ -25,17 +28,21 @@ export default function QRPanel({ code }: { code: string }) {
   };
 
   return (
-    <div className="flex shrink-0 items-center gap-3">
+    <div className="flex flex-col shrink-0 items-center gap-3">
       {url && (
-        <div className="hidden md:block">
-          <QRCodeCanvas value={url} size={72} level="M" includeMargin={false} />
-        </div>
+        <QRCodeCanvas
+          value={url}
+          size={72}
+          level="M"
+          includeMargin={false}
+          className="max-w-full"
+        />
       )}
       <button
         onClick={copy}
-        className="rounded-lg border border-neutral-200 px-3 py-1.5 text-xs text-neutral-600 hover:bg-neutral-50"
+        className="rounded-lg border border-neutral-200 px-1 text-xs text-neutral-600 hover:bg-neutral-50"
       >
-        复制房间链接
+        复制链接
       </button>
     </div>
   );

@@ -14,7 +14,8 @@
 - 移动端/桌面端自适应,中文界面
 
 ## 本地开发
-
+- 使用`npm`启动项目
+- node > 22
 ```bash
 npm install          # 已配置 .npmrc 走 npmmirror,网络不畅时可保留
 npm run dev
